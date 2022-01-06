@@ -48,7 +48,7 @@ const Main = () => {
 
                 <Route path="/" element={<Home />} exact />
                 <Route path="projects" element={<Projects />} exact />
-                <Route path="projects/:id" element={<Project />} />
+                {/* <Route path="projects/:id" element={<Project />} /> */}
                 <Route path="/about" element={<About />} />
                 <Route path="privacy-policy" element={<PrivacyPolicy />} exact />
                 <Route path="*" element={<NotFound />} />

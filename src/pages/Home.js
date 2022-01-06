@@ -12,7 +12,6 @@ const Home = (props) => {
     // const [{id}, dispatch] = useStateValue();
 
     return (
-
         <div className='home-page'>
             <Section className='hero-content'>
                 <div className='row'>

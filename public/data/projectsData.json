@@ -1,6 +1,7 @@
 [
     {
         "id": "kuno-food-delivery",
+        "url": "https://kuno.yuxi-peng.com/",
         "title": "Kuno Food Delivery — Restaurant Page",
         "isFeatured": true,
         "featuredImg": "../../../assets/images/add-to-cart-function-step-0.jpg",
@@ -42,6 +43,7 @@
     },
     {
         "id": "floating-shoes-ad",
+        "url": "https://interactive-ad-shoe.yuxi-peng.com/",
         "title": "Interactive Advertisement — Floating Shoes",
         "isFeatured": true,
         "featuredImg": "../../../assets/images/interactive-ad-shoes-card-step-0.jpg",
@@ -87,6 +89,7 @@
     },
     {
         "id": "adventure-flights",
+        "url": "https://adventure.yuxi-peng.com/",
         "title": "Adventure Flights",
         "isFeatured": true,
         "featuredImg": "../../../assets/images/adventure-flights-final.jpg",

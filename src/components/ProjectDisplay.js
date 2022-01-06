@@ -33,8 +33,8 @@ const ProjectDisplay = (props) => {
 
                 setProjects((projects) => [
                     ...Object.keys(projects),
-                    ...data.map(({ id, title, isFeatured, featuredImg, overview, contributors, skills, techSpecs, process }) => ({
-                        id, title, isFeatured, featuredImg, overview, contributors, skills, techSpecs, process
+                    ...data.map(({ id, url, title, isFeatured, featuredImg, overview, contributors, skills, techSpecs, process }) => ({
+                        id, url, title, isFeatured, featuredImg, overview, contributors, skills, techSpecs, process
                     })),
                 ]);
                 console.log('projects are ', projects);
@@ -52,6 +52,12 @@ const ProjectDisplay = (props) => {
     //     });
     // }
 
+    // <Link to={`projects/${project.id}`}>
+    //                             <div className="img-container">
+    //                                 <img src={project.featuredImg} alt={project.title} />
+    //                             </div>
+    //                         </Link>
+
     if (props.featured == true) {
         filteredByIsFeatured();
 
@@ -60,11 +66,27 @@ const ProjectDisplay = (props) => {
                 {
                     filteredProjects.map((project, i) =>
                         <div key={i} className='card project-card'>
-                            <Link to={`projects/${project.id}`}>
+                            <a href={project.url} target='_blank' rel="noopener noreferrer">
                                 <div className="img-container">
                                     <img src={project.featuredImg} alt={project.title} />
                                 </div>
-                            </Link>
+                            </a>
+                        </div>
+                    )
+                }
+            </div>
+        );
+    } else {
+        return (
+            <div className='project-display'>
+                {
+                    projects.map((project, i) =>
+                        <div key={i} className='card project-card'>
+                            <a href={project.url} target='_blank' rel="noopener noreferrer">
+                                <div className="img-container">
+                                    <img src={project.featuredImg} alt={project.title} />
+                                </div>
+                            </a>
                         </div>
                     )
                 }

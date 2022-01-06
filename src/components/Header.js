@@ -7,7 +7,6 @@ const Header = () => {
 
     useEffect(() => {
         (function () {
-            'use strict';
 
             class Menu {
                 constructor(settings) {
@@ -56,6 +55,13 @@ const Header = () => {
             }
 
             jsMenuNode.querySelector(`.${menuClassesNames.toggleClass}`).addEventListener('click', toggleMenu);
+
+            jsMenuNode.querySelectorAll('.nav-list-item').forEach((item) => {
+                item.addEventListener('click', () => {
+                    demoMenu.menuRootNode.classList.toggle(`${menuClassesNames.activeClass}`);
+                });
+            })
+
         })();
     }, []);
     return (
