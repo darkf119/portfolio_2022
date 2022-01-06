@@ -1,0 +1,116 @@
+[
+    {
+        "id": "kuno-food-delivery",
+        "title": "Kuno Food Delivery — Restaurant Page",
+        "isFeatured": true,
+        "featuredImg": "../../../assets/images/add-to-cart-function-step-0.jpg",
+        "overview": "",
+        "contributors": "N/A",
+        "skills": [
+            "Javascript",
+            "HTML",
+            "CSS"
+        ],
+        "techSpecs": [],
+        "process": [
+            {
+                "label": "Brainstorm and Ideation",
+                "imageSrc": "../../../assets/images/add-to-cart-function-step-1.jpg",
+                "explanation": "When I think of online food ordering and delivery service, the first things come to my mind are DoorDash, Fantuan, and Skip The Dishes. These competitors of Kuno are perhaps by far the most popular platforms to order food from in the west coast of Canada.<br>Of course, they must have a well-working model in their interface design and site functionalities for them to have come this far. Naturally, they serve as good references for me to build the features defined in the discovery phase.<br><br>In the research, I identified some of the competitors’ best practices and designs for how they present restaurant pages. I jotted down notes on what I should include in my project."
+            },
+            {
+                "label": "Building Rough Layout and Integrating Frameworks",
+                "imageSrc": "../../../assets/images/add-to-cart-function-step-2.jpg",
+                "explanation": "After I have my code editor set up, I coded a basic HTML document for the restaurant page to get an idea of how I want the page to look. I used semantic markup to delineate different parts of the page.<br><br>Then, I installed a framework called “MDB Bootstrap” via CDN to access their UI kit. Using a UI kit is helpful when you want to cut down UI development time to devote more time to the functionalities.<br><br>Once the framework was ready to use, I read through its documentation and incorporated its layout tools with the HTML document I created earlier to add responsiveness to the page. At this point, the page layout dynamically readjusted itself under different viewport resolutions."
+            },
+            {
+                "label": "Creating Functionalities",
+                "imageSrc": "../../../assets/images/add-to-cart-function-step-3.jpg",
+                "explanation": "Now the framework is integrated into the project. I began coding functionalities onto the page. A simple makeshift cache database was created using JSON data structure and stored as a JavaScript array. This database stores information about menu items in the restaurant menu, such as item names, item descriptions, and quantities of items added to the cart.<br><br>Later, I used cards to display menu items. Inside each card, aside from the menu item identification, I have an input box with a plus/minus counter and an accordion with optional add-ons for the item. My goal was to synchronize the input value to the database if users were to change their order. At the same time, any change made by the users needed to reflect in the cart. By that, I have to display the items added to the cart and their add-ons.<br><br>To do that, I inspected the attributes of elements in the cart and added menu item identification as values of those attributes. With that, I could pass them as parameters to other functions that update the database. After the database is updated, these functions would call another function that fetches the data stored in the database. The data is then concatenated with HTML codes to show on the cart as food items users want to order."
+            },
+            {
+                "label": "Inserting Data and Adding Search",
+                "imageSrc": "../../../assets/images/add-to-cart-function-step-4.jpg",
+                "explanation": "After testing the functionalities, I went on the internet and randomly decided to use the menu from Burger King for the presentation. I inputted menu item information into my database and categorized the menu items. Next, I thought it was nice to create a search bar for users to find specific food items as there are just way too many items on the menu. To complement this additional feature, I also created a list of categories that takes users directly to a food item category by clicking."
+            },
+            {
+                "label": "Simplifying Codes and Optimizing SEO",
+                "imageSrc": "../../../assets/images/add-to-cart-function-step-5.jpg",
+                "explanation": "Though the restaurant page works as intended, there were replications of codes for my input counters. I simplified them by creating a function just for the input counter. Like before, I passed parameters to differentiate the target storage locations of the different input counters.<br>On the other hand, I made sure to add metadata on images of the menu items where their HTML was written with JavaScript. The metadata references the menu item identification in the database.<br>"
+            }
+        ]
+    },
+    {
+        "id": "floating-shoes-ad",
+        "title": "Interactive Advertisement — Floating Shoes",
+        "isFeatured": true,
+        "featuredImg": "../../../assets/images/interactive-ad-shoes-card-step-0.jpg",
+        "overview": "",
+        "contributors": "N/A",
+        "skills": [
+            "CSS Animation",
+            "Javascript"
+        ],
+        "techSpecs": [],
+        "process": [
+            {
+                "label": "Research & Ideation Phrase 1",
+                "imageSrc": "../../../assets/images/interactive-ad-shoes-card-step-1.jpg",
+                "explanation": "I didn’t have a solid idea at first. So, I began exploring animated ad ideas as well as cool CSS animation tricks on the web. To my discovery, most animated ads deployed on the market were static and not interactive at all. In turn, such practice misses the opportunity to engage with the audience on another level. Since this departs from the goal of my ad campaign, I turned my focus to find CSS tricks and interactive UI designs for displaying shoe related products.<br>Soon, I came across a video on YouTube that explains the process of coding product transition in CSS. A product, such as a shoe, can be swapped with another at the click of a button. I thought it was a good starting point as this kind of transition is often seen on the web. It alludes to the idea this design is effective at building anticipation from the audience."
+            },
+            {
+                "label": "Research & Ideation Phrase 2",
+                "imageSrc": "../../../assets/images/interactive-ad-shoes-card-step-2.jpg",
+                "explanation": "Though I had a rough idea for the interaction aspect of the animation, I still had to tweak the modular design by adding more complex interactions, so there will be an element of surprise and cliché could be avoided.<br>At the time, I recalled my experience of shopping on online platforms that sell shoes. When a product with color variations is displayed, there was a color palette attached below it. Once I specified the color on the palette, the color of the product changed accordingly.<br>With that in mind, I saw a way to extend this interaction to the transition mentioned previously to display different product combinations and backgrounds by clicking on a button."
+            },
+            {
+                "label": "Coding the Animation and Interactions: Card Flip",
+                "imageSrc": "../../../assets/images/interactive-ad-shoes-card-step-3.jpg",
+                "explanation": "When I finished planning, I first coded a basic HTML that displays a card. Since I didn’t want the audience to see the product showcase right away, I made this card double-sided. My thought was to have some tagline or CTA phrase to motivate my audience to unveil the product display by clicking on a button. The card would then flip vertically by 180°, and its back face would appear on top.<br>To do so, I wrote CSS codes to specify the initial states of the front face and the back face of the card. Then, I added an HTML mouse event “on click” to call and run a JavaScript function that rotates the card on the y-axis. As the function executes, it uses a parameter value to determine whether it is supposed to flip the card to the back or front. The parameter value would also change and update each time the function is triggered."
+            },
+            {
+                "label": "Preparing Product Images",
+                "imageSrc": "../../../assets/images/interactive-ad-shoes-card-step-4.jpg",
+                "explanation": "Now that I laid out the groundwork, I needed to find some product images to use. For strictly learning purposes, I sourced images of Adidas' Climacool shoes for the ad campaign. A total of 8 color variations from the product line was imported to Adobe Photoshop to mask out the backgrounds. Finally, I saved the edited images in PNG file format."
+            },
+            {
+                "label": "Coding the Animation and Interactions: Floating Products",
+                "imageSrc": "../../../assets/images/interactive-ad-shoes-card-step-5.jpg",
+                "explanation": "As for the animation itself, I wanted the products to display as floating objects with very subtle movements. With CSS keyframes, I was able to manipulate the positions of the products at different points in the timespan to create an illusion that makes the objects appear to be floating in the air. To rid of the monotonousness in the animation, I further specified animation playback duration for each object. At the same time, having a variation for the floating animation best simulates a real-world environment in which uniformity rarely appears."
+            },
+            {
+                "label": "Adding Details and Touch-Ups",
+                "imageSrc": "../../../assets/images/interactive-ad-shoes-card-step-6.png",
+                "explanation": "Next, my objective was to change the shoe combination and color of the card's background when clicking the \"Change\" button. Before anything else, I stored the file paths of product images in a JavaScript array. Then, I set the product rotation to be one item at a time. The last displaying product is to be followed by the next item in the array.<br>Afterward, I found a code snippet online that triggers a random gradient color generation, and I integrated it into my codes to set random background color for the card’s back face on the button click.<br>To keep the card’s overall look and feel consistent, I created a static gradient background for the card’s front face. I wanted to keep the front face background static so it would feel less intrusive to the audience. The goal was to spark motivation and not a disturbance.<br>For the touch-ups, I considered the accessibility of viewing this ad. First, I styled the card and the text content to dynamically adjusts so it would fit into any viewports. Then, I added hover states on elements where interactions take place to indicate they are action triggers."
+            }
+        ]
+    },
+    {
+        "id": "adventure-flights",
+        "title": "Adventure Flights",
+        "isFeatured": true,
+        "featuredImg": "../../../assets/images/adventure-flights-final.jpg",
+        "overview": "Adventure Flights is an online platform for booking flights, hotels, and car rentals.",
+        "contributors": [
+            "Logan Dikmen",
+            "Elnaz Forutan",
+            "Caitlyn Park"
+        ],
+        "skills": [
+            "CSS Preprocessing with SCSS",
+            "Responsive Web Design",
+            "SEO Optimization",
+            "Data Extraction",
+            "Version Control",
+            "Bug Tracking"
+        ],
+        "techSpecs": [],
+        "process": [
+            {
+                "label": "Research & Ideation Phrase 1",
+                "imageSrc": "../../../assets/images/adventure-flights-final.jpg",
+                "explanation": "placeholder"
+            }
+        ]
+    }
+]

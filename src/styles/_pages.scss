@@ -1,0 +1,443 @@
+// Home Page
+.home-page {
+    position: relative;
+    width: 100%;
+
+    .hero-content {
+        position: relative;
+        height: 100vh;
+        min-height: 568px;
+        max-height: 640px;
+        width: 100%;
+        overflow: hidden;
+        @include screen_up_from(768px){
+            min-height: 720px;
+            max-height: 768px;
+        }
+
+        .row {
+            position: absolute;
+            top: 11em;
+            left: 0;
+            right: 0;
+            // @include screen_up_from(360px){
+            //     margin: 0 auto 0 17vw;
+            // }
+            @include screen_up_from(768px){
+                top: 15.5em;
+            }
+            @include screen_up_from(1024px){
+                top: 14.5em;
+            }
+        }
+
+        .container {
+            margin: 0 auto;
+            width: 230px;
+            z-index: 3000;
+            font-weight: 500;
+            @include screen_up_from(360px){
+                margin: 0 auto 0 17vw;
+                width: 240px;
+            }
+            @include screen_up_from(768px){
+                margin: 0 auto 0 22vw;
+                width: 360px;
+            }
+            @include screen_up_from(1024px){
+                margin: 0 auto 0 25vw;
+                width: 390px;
+            }
+            @include screen_up_from(1440px){
+                margin: 0 auto 0 28vw;
+            }
+        }
+
+        .hero-heading {
+            color: $primary_color;
+            font-size: 4em;
+            text-transform: uppercase;
+            
+            @include screen_up_from(412px){
+                font-size: 4.3em;
+                line-height: 1.1;
+            }
+            @include screen_up_from(768px){
+                font-size: 4.6em;
+            }
+            @include screen_up_from(1024px){
+                font-size: 5em;
+                line-height: 1.2;
+            }
+            
+            a {
+                color: $secondary_color;
+            }
+        }
+        .hero-subheading {
+            color: $secondary_color;
+            margin-left: .15em;
+            margin-top: 1em;
+            font-size: 1.08em;
+            @include screen_up_from(412px){
+                margin-top: 0.75em;
+                font-size: 1.1em;
+            }
+            @include screen_up_from(768px){
+                margin-top: 0.8em;
+                font-size: 1.5em;
+            }
+            @include screen_up_from(1024px){
+                margin-top: .9em;
+            }
+            // @include screen_up_from(1280px){
+            //     font-size: 1.7em;
+            // }
+        }
+    }
+
+    .logo-decor {
+        width: auto;
+        position: absolute;
+        z-index: 2000;
+        transition: opacity .15s, left .15s, top .15s;
+        transition-timing-function: ease-out;
+        
+        &.decor-small {
+            height: 120px;
+            left: 6%;
+            top: 2.5em;
+            opacity: 1;
+            transition: all .15s;
+            transition-timing-function: ease-out;
+            @include screen_up_from(412px){
+                height: 140px;
+                left: -10px;
+                top: 0;
+                opacity: 0.7;
+            }
+            @include screen_up_from(768px){
+                height: 190px;
+                left: -10px;
+                top: 1em;
+                opacity: 0.5;
+            }
+            @include screen_up_from(1024px){
+                height: 18.3em;
+                left: -3.6em;
+                top: -3em;
+                opacity: 0.7;
+            }
+            @include screen_up_from(1440px){
+                left: 6%;
+            }
+        }
+        &.decor-big {
+            height: 28em;
+            //top: 20em;
+            bottom: -7em;
+            right: -6.4em;
+            opacity: 0.3;
+            transition: all .15s;
+            transition-timing-function: ease-out;
+            @include screen_up_from(412px){
+                opacity: 0.4;
+            }
+            @include screen_up_from(768px){
+                opacity: 0.5;
+            }
+            @include screen_up_from(1024px){
+                height: 32em;
+                right: -5.5em;
+                opacity: 0.7;
+            }
+            @include screen_up_from(1440px){
+                right: 6%;
+            }
+        }
+    }
+
+    .featured-projects {
+        min-height: 30em;
+        background-color: $primary_color;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h2 {
+            margin-top: 1.4em;
+            font-size: 2.5em;
+            color: $color_white;
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        .project-display {
+            @include ProjectDisplay(1280px);
+            margin-top: 1.8em;
+            gap: 4vmin;
+            margin-bottom: 2em;
+            @include screen_up_from(768px){
+                margin-top: 2.2em;
+                margin-bottom: 3em;
+            }
+            @include screen_up_from(1280px){
+                margin-top: 3.5em;
+                margin-bottom: 4em;
+            }
+        }
+        
+        .card {
+            @include Card(90%, 16em, .7em);
+            @include screen_up_from(412px){
+                height: 46vmax;
+            }
+            @include screen_up_from(640px){
+                height: 50vmax;
+            }
+            @include screen_up_from(768px){
+                width: 80%;
+            }
+            @include screen_up_from(1280px){
+                width: 24em;
+                height: 16em;
+            }
+
+            a {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
+
+// About page
+.about-page {
+    width: 100%;
+    font-size: 1em;
+    position: relative;
+
+    section {
+        display: flex;
+        justify-content: center;
+    }
+
+    .hero-content {
+        height: 100vh;
+        width: 100%;
+    }
+
+    .text-container {
+        position: absolute;
+        z-index: 2200;
+        width: 78%;
+        max-width: 1280px;
+        margin-top: 17em;
+        @include screen_up_from(412px){
+            margin-top: 8em;
+        }
+        @include screen_up_from(768px){
+            font-size: 1.2em;
+            margin-top: 8.3em;
+        }
+    }
+
+    h1 {
+        font-size: 4em;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: $primary_color;
+        width: 50%;
+        margin-bottom: .4em;
+        @include screen_up_from(570px){
+            font-size: 5em;
+        }
+        @include screen_up_from(992px){
+            font-size: 6em;
+            width: 100%;
+        }
+    }
+
+    p {
+        line-height: 1.5;
+    }
+
+    a {
+        color: $primary_color;
+        &:hover {
+            color: $secondary_color;
+        }
+    }
+
+    .img-container {
+        @include ImageFitCover;
+        position: absolute;
+        
+        &.profile-img-container {
+            margin-top: 5em;
+            width: 11em;
+            height: 11em;
+            border-radius: 50%;
+            z-index: 2100;
+            position: relative;
+
+            transition: all .15s ease-out;
+            @include screen_up_from(412px){
+                width: 8em;
+                height: 8em;
+                top: 2.6em;
+                left: 6em;
+            }
+            @include screen_up_from(570px){
+                width: 10em;
+                height: 10em;
+                left: 9em;
+                top: 4.6em;
+            }
+            @include screen_up_from(768px){
+                top: 7%;
+                left: 240px;
+            }
+            @include screen_up_from(1280px){
+                top: 6.5%;
+                left: 90px;
+            }
+
+            img {
+                height: 150%;
+                width: 150%;
+                object-position: 76% bottom;
+                position: relative;
+            }
+            
+        }
+        &.hero-img-container {
+            top: 0;
+            height: 100%;
+            width: 100%;
+            z-index: 500;
+            img {
+                opacity: 0.1;
+            }
+        }
+    }
+    
+    .scroll-down-hint {
+        display: none;
+        transition: all .15s ease-out;
+        @include screen_up_from(1280px){
+            display: block;
+        }
+    }
+}
+
+// Privacy Policy page
+.privacy-policy-page {
+    width: 100%;
+    font-size: 1em;
+
+    section {
+        display: flex;
+        justify-content: center;
+    }
+    .container {
+        width: 78%;
+        max-width: 1280px;
+        margin-top: 7.5em;
+        @include screen_up_from(412px){
+            margin-top: 8em;
+        }
+        @include screen_up_from(768px){
+            font-size: 1.2em;
+            margin-top: 8.3em;
+        }
+
+        & > ul,
+        & > p {
+            line-height: 1.8;
+            margin-bottom: 1.8em;
+        }
+    }
+    h1 {
+        font-size: 4em;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: $primary_color;
+        width: 50%;
+        margin-bottom: .4em;
+        @include screen_up_from(570px){
+            font-size: 6em;
+        }
+    }
+    h4 {
+        margin-bottom: 1.2em;
+        line-height: 1.6em;
+    }
+    strong {
+        font-weight: 500;
+    }
+    i {
+        font-weight: 500;
+        font-style: italic;
+    }
+}
+
+// NotFound - 404 page
+.notfound-page {
+    width: 100vw;
+    position: relative;
+    
+    section {
+        display: flex;
+        justify-content: center;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 30vh;
+        align-items: flex-start;
+        z-index: 1500;
+        max-width: 92vw;
+        @include screen_up_from(600px){
+            align-items: center;
+            top: 42vh;
+        }
+    }
+
+    h1 {
+        font-size: 2.4em;
+        font-weight: 500;
+        margin-bottom: .4em;
+    }
+
+    p {
+        font-size: 1.2em;
+        margin-bottom: 1.6em;
+    }
+
+    .btn {
+        @include Button(1.8em, .6em);
+        border-radius: .4em;
+        color: $color_white;
+        font-size: 1em;
+        transition: all .15s ease-out;
+    }
+    .backdrop-text {
+        position: absolute;
+        font-size: 25em;
+        font-weight: 700;
+        opacity: 0.2;
+        color: $secondary_color;
+        left:4%;
+        top: 18vh;
+        user-select: none;
+        transition: all .15s ease-out;
+        @include screen_up_from(768px){
+            align-items: center;
+            left:8%;
+            font-size: 32em;
+        }
+    }
+}

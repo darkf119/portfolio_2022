@@ -1,0 +1,26 @@
+// Colors
+$primary_color: #4E6394;
+$secondary_color: #7294E0;
+$color_white: #fff;
+
+$bg_light: #fff;
+$bg_dark: #000;
+
+$text_light: #fff;
+$text_dark: #000;
+
+// Theme
+$themes: (
+  light: (
+    theme-bg: $bg_light,
+    theme-text-color: $text_dark,
+  ),
+  dark: (
+    theme-bg: $bg_dark,
+    theme-text-color: $text_light,
+  ),
+);
+
+// Layout | Sizes
+$gl_main_height: 667px;
+$gl_ftr_height: 8em;

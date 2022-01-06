@@ -1,0 +1,375 @@
+@import "./reset";
+@import "./responsive_mixins";
+@import "./config";
+@import "./components";
+@import "./pages";
+
+* {
+    text-decoration: none;
+}
+
+body {
+    min-height: 100vh;
+    width: 100vw;
+    font-family: 'Fira Sans', sans-serif;
+    position: relative;
+    
+    overflow-x: hidden;
+
+    noscript {
+        position: fixed;
+        margin: 0 auto;
+        // responsive not applied
+        font-size: 40em;
+    }
+
+    #root {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+}
+
+.portfolio {
+    width: 100%;
+    //background-color: aquamarine;
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: $bg_light;
+    // &.theme-color-dark{
+
+    // }
+}
+
+.portfolio-header {
+    //background-color: blueviolet;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 5000;
+    
+    $menu_hamburger_width: 1.75rem;
+    $menu_hamburger_height: 1.25rem;
+    $menu_hamburger_outline_color: transparent;
+    $hamburger_thickness: 4px;
+    $menu_circle_size: 4rem;
+    $menu_circle_offset: 1rem;
+    $menu_circle_height: calc($menu_circle_size / 1.25);  
+    $menu_circle_bg: $primary_color;
+    $btn_bg: transparent;
+    $btn_padding: 0 0 0 0;
+    $r_btn_border_style: solid;
+    $r_btn_border_color: transparent;
+    $r_btn_padding_top: calc($menu_circle_height - $menu_hamburger_height - $menu_circle_offset);
+    $hamburger_width: $menu_hamburger_width;
+    $hamburger_height: $menu_hamburger_height;
+    $hamburger_bg: $color_white;
+
+    .menu {
+        position: relative;
+        display: flex;
+    }
+
+    .r-button{
+        background-color: $btn_bg;
+        padding: $btn_padding;
+        position: absolute;
+        right: 0em;
+        justify-self: flex-end;
+        border-width: 0;
+        border-style: $r_btn_border_style;
+        border-color: $r_btn_border_color;
+        cursor: pointer;
+
+        &::-moz-focus-inner,
+        &[type="button"]::-moz-focus-inner,
+        &[type="reset"]::-moz-focus-inner,
+        &[type="submit"]::-moz-focus-inner {
+            
+            /* Remove the inner border and padding in Firefox. */
+            border-style: none;
+            padding: 0;
+        }
+    }
+  
+    /* Basic styles of the hamburger component */
+    
+    .m-hamburger{
+        display: inline-flex;
+        width: 28px;
+        height: 20px;
+        position: relative;
+
+        &::before, 
+        &::after, 
+        .m-hamburger__label{
+            width: 100%;
+            height: $hamburger_thickness;
+            border-radius: 5px;
+            background-color: $color_white;
+            position: absolute;
+            left: 0;
+            background-color: $primary_color;
+        }
+        &::before, 
+        &::after{
+            content:"";
+        }
+        &::before{
+            top: 0;
+        }
+        &::after{
+            bottom: 0;
+        }
+        .m-hamburger__label{
+            /* The calculation of middle hamburger button line position */
+            top: calc(50% - calc($hamburger_thickness / 2));
+        }
+    }
+  
+  /* helper to hide elements that are available only for screen readers. */
+  
+  .screen-reader{
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    border: none !important;
+    position: absolute !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    overflow: hidden !important;
+  }
+
+  //// Menu Styles ////
+
+  .menu__nav{
+    width: 100%;
+    height: 0;
+    transition: opacity .1s ease-out;
+    opacity: 0;
+    display: flex;
+    align-items: flex-start;
+    @include screen_up_from(992px){
+        opacity: 1;
+    }
+
+    .nav-content {
+        width: max-content;
+        height: auto;
+        @include screen_up_from(992px){
+            margin-left: auto;
+            margin-right: .8em;
+        }
+        @include screen_up_from(1440px){
+            margin-right: 7em;
+        }
+    }
+
+    .menu__list{
+        width: 100%;
+        max-height: 100%;
+        margin-top: 4em;
+        @include screen_up_from(992px){
+            margin-top: 2em;
+        }
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+
+        a {
+            color: $text_light;
+            @include screen_up_from(992px){
+                color: $secondary_color;
+                display: flex;
+                justify-content: flex-end;
+            }
+        }
+    }
+  }
+  
+  .menu__toggle{
+    width: $menu_circle_size;
+    height: $menu_circle_height;
+    flex: none;
+    position: relative;
+    @include screen_up_from(992px){
+        display: none;
+    }
+
+    // Expandable circle
+    &::before {
+        content: "";
+        width: 1em;
+        height: 1em;
+        font-size: 0; /* for circle size */
+        background-color: $menu_circle_bg;
+        border-radius: 50%;
+        position: absolute;
+        bottom: -.5em; /* 2 */
+        left: calc(50% - .5em);
+        z-index: -1;
+        will-change: width, height;
+        transition: transform .05s cubic-bezier(0.04, -0.1, 0.29, 0.98),
+                    width .05s cubic-bezier(0.04, -0.1, 0.29, 0.98),
+                    height .05s cubic-bezier(0.04, -0.1, 0.29, 0.98);
+    }
+    /* styles of hamburger's animation */
+    .m-hamburger::before, 
+    .m-hamburger::after, 
+    .m-hamburger__label{
+        transition-timing-function: ease;
+        transition-duration: .05s;  
+    }
+    .m-hamburger::before, 
+    .m-hamburger::after{
+        transition-property: transform;
+    }
+    .m-hamburger__label{
+        transition-property: transform, opacity;
+    }
+  }
+  
+  //// Menu States ////
+  
+//   .menu__toggle:focus{
+//     outline: 2px solid $menu_hamburger_outline_color;
+//     outline-offset: 5px;
+//   }
+  
+  .menu:not(.menu_activated) .menu__list{
+    display: none;
+    // Make menu visible from breakpoint 992px
+    @include screen_up_from(992px){
+        display: block;
+    }
+  }
+  
+  .menu_activated {
+    //// Setting ////
+    $menu_hamburger_outline_color: $color_white;
+    //// Styles ////
+    height: 100%;
+
+    //// Navigation ////
+    .menu__nav{
+        flex-grow: 1;
+        opacity: 1;
+      
+        will-change: opacity;
+        transition-duration: .2s;
+        transition-delay: .3s;
+    }
+    //// Menu toggle button ////
+    .menu__toggle{
+
+        &::before{
+            width: 100vmax;
+            height: 100vmax;
+            transform: translate3d(-50vh, -50vh, 0) scale(5);
+            transition-duration: .5s; // menu growth speed
+        }
+        // Cross arm right
+        .m-hamburger::before{
+            top: 50%;
+            transform: translate3d(0, -50%, 0) rotate(45deg);
+            background-color: $color_white;
+        }
+        // Cross arm left
+        .m-hamburger::after{
+            transform: translate3d(0, -50%, 0) rotate(135deg);
+            top: 50%;
+            background-color: $color_white;
+        }
+        // Hamburger label when toggle menu activated
+        .m-hamburger__label{
+            transform: rotate(-45deg) translate3d(-.285em,-.3em, 0);
+            opacity: 0; // hide hamburger
+        }
+    }
+    
+  }
+  
+  .menu__group{
+    padding: .5rem 2rem; 
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .social-icon {
+    fill: $color_white;
+    @include screen_up_from(992px){
+        display: none;
+    }
+  }
+}
+
+.portfolio-main {
+    width: 100%;
+    min-height: calc(100vh - $gl_ftr_height);
+    //max-height: 100vh;
+    overflow-x: hidden;
+
+    section {
+        width: 100%;
+        position: relative;
+    }
+}
+
+.portfolio-footer {
+    margin-top: auto;
+    width: 100%;
+    height: $gl_ftr_height;
+    @include screen_up_from(992px){
+        height: calc($gl_ftr_height - 44px);
+    }
+
+    & > div {
+        width: max-content;
+        margin: 0 auto;
+    }
+    .social-nav {
+        margin-top: 4em;
+        @include screen_up_from(992px){
+            position: fixed;
+            left: 3.8em;
+            bottom: 13%;
+        }
+
+        .nav-list {
+            @include screen_up_from(992px){
+                flex-direction: column;
+            }
+        }
+    }
+    .social-icon {
+        @include screen_up_from(992px){
+            fill: $secondary_color;
+        }
+    }
+    .statement {
+        margin-top: 1.5em;
+        font-size: .9em;
+        max-width: 80%;
+        text-align: center;
+        @include screen_up_from(992px){
+            margin-top: 5em;
+        }
+
+        a {
+            color: $primary_color;
+            &:hover {
+                color: $secondary_color;
+            }
+        }
+    }
+}
+
+.scroll-down-hint {
+    @include ScrollDownHint;
+}

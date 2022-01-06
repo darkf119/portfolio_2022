@@ -1,0 +1,37 @@
+// Screen Resolutions Ref
+// *320, _360, 412, *768, *992, _1024, *1280, _1366, 1440, 1920, 2560
+
+// From min-width
+//  @default from 0
+@mixin screen_up_from($minWidth) {
+    @media only screen and (min-width: $minWidth) {
+      @content;
+    }
+}
+
+// From min height
+@mixin screen_height_up_from($minHeight) {
+    @media only screen and (min-height: $minHeight) {
+      @content;
+    }
+}
+
+@mixin screen_height_up_to($maxHeight) {
+    @media only screen and (max-height: $maxHeight) {
+      @content;
+    }
+}
+
+// Up to max-width
+@mixin screen_up_to($maxWidth) {
+    @media only screen and (max-width: $maxWidth) {
+        @content;
+    }
+}
+  
+// Variable
+@mixin screen_btw($minWidth, $maxWidth) {
+    @media only screen and (min-width: $minWidth) and (max-width: $maxWidth) {
+        @content;
+    }
+}
